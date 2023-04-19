@@ -6,6 +6,7 @@ import {
     MANGA_PUBLISHER_URL,
 } from "./constants.js";
 import { isChapterAvailable } from "./infra/manga-publisher.js";
+import { sendMessageToGoogleChat } from "./infra/notification-inbox.js";
 
 let tryNumber = 0;
 let currentMangaChapter = 1081;
@@ -22,8 +23,8 @@ const fetchChapterAvailable = async (): Promise<boolean> => {
         });
 };
 
-const completeNotification = () => {
-    console.log("Chapter is available !", Date.now());
+const completeNotification = async () => {
+    await sendMessageToGoogleChat("Chapter is available !");
     tryNumber = 0;
     currentMangaChapter += 1;
 };
@@ -37,7 +38,10 @@ export const notifyChapterAvailable = async () => {
         return;
     }
 
-    if (tryNumber > JOB_LIMIT) return;
+    if (tryNumber > JOB_LIMIT) {
+        await sendMessageToGoogleChat("The chapter is not available ...");
+        return;
+    }
 
     tryNumber += 1;
     await setTimeout(notifyChapterAvailable, JOB_REFRESH_RATE);
