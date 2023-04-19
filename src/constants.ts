@@ -1,4 +1,3 @@
-export const MANGA_PUBLISHER_URL = "https://www.mangasail.net/";
 export const MANGA_NAME = "One Piece";
 
 export const JOB_DAY = 3;

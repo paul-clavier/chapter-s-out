@@ -1,7 +1,13 @@
+import got from "got";
 import { JSDOM } from "jsdom";
 import { MANGA_NAME } from "../constants.js";
 
-export const isChapterAvailable = (dom: JSDOM, chapter: number): boolean => {
+const MANGA_PUBLISHER_URL = "https://www.mangasail.net/";
+
+export const isChapterAvailableOnPublisher = (
+    dom: JSDOM,
+    chapter: number,
+): boolean => {
     let isChapterAvailable = false;
 
     const latestChapters = dom.window.document.querySelector("ul#latest-list");
@@ -15,4 +21,15 @@ export const isChapterAvailable = (dom: JSDOM, chapter: number): boolean => {
             isChapterAvailable = true;
     });
     return isChapterAvailable;
+};
+
+export const fetchPublisher = async (): Promise<JSDOM> => {
+    return got(MANGA_PUBLISHER_URL)
+        .then((response) => {
+            return new JSDOM(response.body);
+        })
+        .catch((err) => {
+            console.log(err);
+            return new JSDOM();
+        });
 };
