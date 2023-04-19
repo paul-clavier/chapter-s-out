@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "esnext", // use import and export syntax in files
+        "moduleResolution": "node", // import from node_modules
+        "esModuleInterop": true,
+        "allowJs": false,
+        "target": "esnext",
+        "strict": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts"]
+}
