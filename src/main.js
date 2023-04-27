@@ -6,9 +6,10 @@ import {
 import { fetchChapterAvailable } from "./domain/scraping.js";
 
 let tryNumber = 0;
-let currentMangaChapter = 1081;
+let currentMangaChapter = process.env.CHAPTER;
 
 export const scrapeAndNotifyChapterAvailable = async () => {
+    console.log(`Starting job for chapter ${currentMangaChapter}`);
     const isChapterAvailable = await fetchChapterAvailable(currentMangaChapter);
 
     if (isChapterAvailable) {

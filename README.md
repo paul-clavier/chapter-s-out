@@ -8,12 +8,13 @@ This repository will scrape a website publishing manga chapter releases on a wee
 npm install
 ```
 
-### Build project
-```
-tsc
-```
-
 ### Launch cron
 ```
-node dist/index.js
+node index.js
+```
+
+### Launch one shot
+This script will enable you to run locally the script without the cron. You should provide an env variable for the chapter you aime to fetch.
+```
+node index.js
 ```

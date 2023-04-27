@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 /**
  * Sends asynchronous message into Google Chat
  */
-export const sendMessageToInbox = (message: string) => {
+export const sendMessageToInbox = (message) => {
     const data = JSON.stringify({
         text: message,
     });

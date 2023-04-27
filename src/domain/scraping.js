@@ -3,9 +3,7 @@ import {
     isChapterAvailableOnPublisher,
 } from "../infra/scraping-publisher.js";
 
-export const fetchChapterAvailable = async (
-    currentMangaChapter: number,
-): Promise<boolean> => {
+export const fetchChapterAvailable = async (currentMangaChapter) => {
     return fetchPublisher().then((dom) =>
         isChapterAvailableOnPublisher(dom, currentMangaChapter),
     );

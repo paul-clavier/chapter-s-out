@@ -4,10 +4,7 @@ import { MANGA_NAME } from "../constants.js";
 
 const MANGA_PUBLISHER_URL = "https://www.mangasail.net/";
 
-export const isChapterAvailableOnPublisher = (
-    dom: JSDOM,
-    chapter: number,
-): boolean => {
+export const isChapterAvailableOnPublisher = (dom, chapter) => {
     let isChapterAvailable = false;
 
     const latestChapters = dom.window.document.querySelector("ul#latest-list");
@@ -23,7 +20,7 @@ export const isChapterAvailableOnPublisher = (
     return isChapterAvailable;
 };
 
-export const fetchPublisher = async (): Promise<JSDOM> => {
+export const fetchPublisher = async () => {
     return got(MANGA_PUBLISHER_URL)
         .then((response) => {
             return new JSDOM(response.body);
