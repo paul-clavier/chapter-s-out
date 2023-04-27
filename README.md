@@ -14,7 +14,7 @@ node index.js
 ```
 
 ### Launch one shot
-This script will enable you to run locally the script without the cron. You should provide an env variable for the chapter you aime to fetch.
+This script will enable you to run locally the script without the cron. You should provide an env variable CHAPTER for the chapter you aime to fetch.
 ```
-node index.js
+CHAPTER=<chapter> node index-one-shot.js
 ```
