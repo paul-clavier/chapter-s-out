@@ -21,4 +21,4 @@ CHAPTER=<chapter> node index-one-shot.js
 
 # Deployment
 
-Deployed with Docker thanks to (Render)[https://dashboard.render.com/]
+Deployed with Docker thanks to [Render](https://dashboard.render.com/)
