@@ -18,3 +18,7 @@ This script will enable you to run locally the script without the cron. You shou
 ```
 CHAPTER=<chapter> node index-one-shot.js
 ```
+
+# Deployment
+
+Deployed with Docker thanks to (Render)[https://dashboard.render.com/]
