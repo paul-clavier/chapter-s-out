@@ -24,6 +24,9 @@ export const scrapeAndNotifyChapterAvailable = async () => {
         return;
     }
 
+    if (tryNumber % 100 === 0) {
+        console.log(`Try number ${tryNumber}`)
+    }
     tryNumber += 1;
     await setTimeout(scrapeAndNotifyChapterAvailable, JOB_REFRESH_RATE);
 };
