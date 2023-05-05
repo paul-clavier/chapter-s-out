@@ -14,11 +14,11 @@ node index.js
 ```
 
 ### Launch one shot
-This script will enable you to run locally the script without the cron. You should provide an env variable CHAPTER for the chapter you aime to fetch.
+This script will enable you to run locally the script without the cron. You should provide an env variable `CHAPTER` for the chapter you aim to fetch.
 ```
 CHAPTER=<chapter> node index-one-shot.js
 ```
 
-# Deployment
+### Production
+This app is live in production thanks to [fly](fly.io) following the docker deployment procedure [here](https://fly.io/docs/languages-and-frameworks/dockerfile/)
 
-Deployed with Docker thanks to [Render](https://dashboard.render.com/)
