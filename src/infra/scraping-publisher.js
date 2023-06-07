@@ -11,11 +11,14 @@ export const isChapterAvailableOnPublisher = (dom, chapter) => {
     latestChapters?.childNodes.forEach((elem) => {
         const chapterRow = elem.lastChild?.firstChild?.lastChild?.firstChild;
         if (
-            chapterRow?.firstChild?.textContent ===
-                `${MANGA_NAME} ${chapter}` &&
+            (chapterRow?.firstChild?.textContent ===
+                `${MANGA_NAME} ${chapter}` ||
+                chapterRow?.firstChild?.textContent ===
+                    `${MANGA_NAME} (Mobile) ${chapter}`) &&
             chapterRow.childNodes.length === 2
-        )
+        ) {
             isChapterAvailable = true;
+        }
     });
     return isChapterAvailable;
 };

@@ -24,7 +24,7 @@ export const scrapeAndNotifyChapterAvailable = async () => {
         return;
     }
 
-    if (tryNumber % 100 === 0) {
+    if (tryNumber % 10 === 0) {
         console.log(`Try number ${tryNumber}`);
     }
     tryNumber += 1;
