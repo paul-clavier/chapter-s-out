@@ -21,6 +21,7 @@ export const scrapeAndNotifyChapterAvailable = async () => {
 
     if (tryNumber > JOB_LIMIT) {
         await failNotification(currentMangaChapter);
+        tryNumber = 0;
         return;
     }
 
